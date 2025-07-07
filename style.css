@@ -13,10 +13,10 @@ body {
 header {
     width: 100vw;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 1%;
-   /* position: fixed; */
    background-color: #106EBE;
 }
 
@@ -36,23 +36,38 @@ nav a {
     font-weight: bold;
 }
 
+#hamburger, .menu-icon {
+  display: none;
+}
+
+main, footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0.5rem;
+    background-color: #106EBE;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+}
+
+main {
+    text-align: center;
+}
+
 .hero {
     height: 90vh;
     display: flex;
     background-color: #E9F1FA;
+    width: 100%;
     animation: hero 3s linear 0s;
 }
 
 .heroimage {
-    width: 70%;
-   /* border-radius: 10rem 0rem 10rem 0rem;*/
-    overflow: hidden;
-   /* background-color: white; */
-    margin-right: 5rem;
-}
-
-.heroimage image {
-    box-shadow: 10px 10px 5px;
+   /* width: 70%;*/
+   /* overflow: hidden;*/
+    margin-right: 2rem;
+    padding: 3rem 0rem;
 }
 
 .herocontent {
@@ -96,6 +111,7 @@ nav a {
     justify-content: center;
     padding-top: 2rem;
     background-color: #106EBE;
+    width: 100%;
 }
 
 .productcards div {
@@ -106,6 +122,10 @@ nav a {
     background-color: #E9F1FA;
     color: #106EBE;
     font-weight: bold;
+}
+
+.productcards div:hover {
+    transform: scale(1.2);
 }
 
 .productcards div button {
@@ -119,16 +139,6 @@ p {
     margin: 1rem;
 }
 
-main,footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0.5rem;
-    background-color: #106EBE;
-    color: white;
-    font-weight: bold;
-}
-
 footer img {
     width: 4rem;
     height: 4rem;
@@ -139,13 +149,66 @@ footer img {
     0% {
         opacity: 0;
     }
-
+    
     100% {
         opacity: 1;
     }
     
 }
 
-@media (min-width:600px) {
+@media (max-width:460px) {
+    .heroimage img {
+        display: none;
+    }
+    
+    .heroimage {
+      display: none;
+    }
+    
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    header nav {
+        display: none;
+    }
+    
+    #hamburger {
+        display: none;
+    }
+    
+    .menu-icon {
+      display: block;
+    }
+    
+    #hamburger:checked + .menu-icon + .nav {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .menu-icon {
+        font-size: 2rem;
+    }
+    
+    .productcards {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    footer div {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    footer img {
+        height: 2rem;
+        width: 2rem;
+    }
     
 }
